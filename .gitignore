@@ -1,0 +1,36 @@
+# Archivos a ignorar
+
+## Directorios comunes
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+env/
+
+## IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+## Sistema operativo
+.DS_Store
+Thumbs.db
+
+## Build y temporales
+dist/
+build/
+*.egg-info/
+.tmp/
+
+## Logs
+*.log
+logs/
+
+## Configuraciones locales
+.env
+.env.local
+config.local.*
