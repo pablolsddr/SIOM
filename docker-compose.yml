@@ -1,0 +1,31 @@
+
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: SIOM_facturacion
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+    #El puerto 5431 del host se mapea al puerto 5432:5432 
+    # al ejecutar dejarlo en el 5432:5432  
+      - "5431:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  metabase:
+    image: metabase/metabase:latest
+    container_name: metabase_SIOM
+    ports:
+      - "3000:3000"
+    volumes:
+      - metabase-data:/metabase-data
+    environment:
+      - MB_DB_FILE=/metabase-data/metabase.db
+
+volumes:
+  pg_data:
+  metabase-data:
